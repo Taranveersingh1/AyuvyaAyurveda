@@ -1,10 +1,9 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
-import "./FitnessComponent.css";
+import "./Component1.css";
 
 const Component1 = () => {
   const [selected, setSelected] = useState(() => {
-    
     const savedIndex = localStorage.getItem("selectedIndex");
     return savedIndex !== null ? parseInt(savedIndex, 10) : 1;
   });
@@ -13,8 +12,12 @@ const Component1 = () => {
     localStorage.setItem("selectedIndex", selected);
   }, [selected]);
 
+  useEffect(() => {
+    localStorage.removeItem("selectedIndex");
+  }, []);
+
   const handleMouseEnter = (index) => {
-    setSelected(index); 
+    setSelected(index);
   };
 
   return (
@@ -29,6 +32,7 @@ const Component1 = () => {
             alt="Strength"
             className="fitness-image"
           />
+          <div className="fitness-arrow">➤</div>
           <div className="fitness-text">STRENGTH</div>
         </div>
         <div
@@ -40,6 +44,7 @@ const Component1 = () => {
             alt="Mobility"
             className="fitness-image"
           />
+          <div className="fitness-arrow">➤</div>
           <div className="fitness-text">MOBILITY</div>
         </div>
         <div
@@ -51,6 +56,7 @@ const Component1 = () => {
             alt="Drills"
             className="fitness-image"
           />
+          <div className="fitness-arrow">➤</div>
           <div className="fitness-text">DRILLS</div>
         </div>
       </div>
