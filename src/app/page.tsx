@@ -1,9 +1,9 @@
-import Image from "next/image";
-import FitnessComponent from "@/app/Component1"
+
+import Component1 from "@/app/Component1"
 export default function Home() {
   return (
     <div>
-      <FitnessComponent/>
+      <Component1/>
     </div>
   );
 }
